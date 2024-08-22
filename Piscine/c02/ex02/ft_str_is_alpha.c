@@ -5,11 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bxavier- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 17:44:46 by bxavier-          #+#    #+#             */
-/*   Updated: 2024/08/15 13:11:13 by bxavier-         ###   ########.fr       */
+/*   Created: 2024/08/19 16:40:27 by bxavier-          #+#    #+#             */
+/*   Updated: 2024/08/19 16:40:36 by bxavier-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <unistd.h>
 //#include <stdio.h>
 
 int	ft_str_is_alpha(char *str)
@@ -17,8 +18,6 @@ int	ft_str_is_alpha(char *str)
 	int	i;
 
 	i = 0;
-	if (!dest || !src)
-		return (NULL);
 	while (str[i] != '\0')
 	{
 		if ((str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
@@ -30,7 +29,6 @@ int	ft_str_is_alpha(char *str)
 	return (1);
 }
 /*
-
 int	main(void)
 {
 	int	p;

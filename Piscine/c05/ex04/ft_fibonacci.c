@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bxavier- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 20:45:00 by bxavier-          #+#    #+#             */
-/*   Updated: 2024/08/15 13:09:44 by bxavier-         ###   ########.fr       */
+/*   Created: 2024/08/18 19:39:28 by bxavier-          #+#    #+#             */
+/*   Updated: 2024/08/19 22:07:29 by bxavier-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <stdio.h>
+#include <unistd.h>
 
-int	ft_str_is_printable(char *str)
+int	ft_fibonacci(int index)
 {
-	int	i;
+	int	fib;
 
-	i = 0;
-	while (str[i] != '\0')
+	if (index < 0)
+		return (-1);
+	if (index == 0)
+		return (0);
+	if (index == 1)
+		return (1);
+	else
 	{
-		if (str[i] < 32 || str[i] > 126)
-		{
-			return (0);
-		}
-		i++;
+		fib = ft_fibonacci(index - 1) + ft_fibonacci(index - 2);
 	}
-	return (1);
+	return (fib);
 }
 /*
 int	main(void)
 {
-	printf("O valor da Str é:%d", ft_str_is_printable("oi"));
+	printf("%d", ft_fibonacci(10));
 }*/

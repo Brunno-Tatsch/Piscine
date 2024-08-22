@@ -17,8 +17,6 @@ int	ft_str_is_lowercase(char *str)
 	int	i;
 
 	i = 0;
-	if (!dest || !src)
-		return (NULL);
 	while (str[i] != '\0')
 	{
 		if (str[i] < 'a' || str[i] > 'z')
@@ -30,7 +28,6 @@ int	ft_str_is_lowercase(char *str)
 	return (1);
 }
 /*
-
 int	main(void)
 {
 	printf("O valor da Str é:%d", ft_str_is_lowercase("abA"));

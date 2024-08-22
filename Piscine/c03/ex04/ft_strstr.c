@@ -1,34 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bxavier- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 20:45:00 by bxavier-          #+#    #+#             */
-/*   Updated: 2024/08/15 13:09:44 by bxavier-         ###   ########.fr       */
+/*   Created: 2024/08/17 17:01:15 by bxavier-          #+#    #+#             */
+/*   Updated: 2024/08/21 19:47:48 by bxavier-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <stdio.h>
 
-int	ft_str_is_printable(char *str)
+char	*ft_strstr(char *str, char *to_find)
 {
-	int	i;
+	int		i;
+	int		j;
+	char	*str_sub;
 
+	str_sub = NULL;
 	i = 0;
+	j = 0;
+	if (to_find[0] == '\0')
+		return (str);
 	while (str[i] != '\0')
 	{
-		if (str[i] < 32 || str[i] > 126)
+		if (str[i] == to_find[j])
 		{
-			return (0);
+			if (to_find[j + 1] == '\0')
+			{
+				str_sub = &str[i - j];
+				return (str_sub);
+			}
+			j++;
 		}
+		else
+			j = 0;
 		i++;
 	}
-	return (1);
+	return (str_sub);
 }
 /*
 int	main(void)
 {
-	printf("O valor da Str é:%d", ft_str_is_printable("oi"));
+	char	str[] = "Uma vez Flamengo Sempre Flamengo";
+	char	to_find[] = "vez";
+
+	printf("%s", ft_strstr(str, to_find));
+	return (0);
 }*/

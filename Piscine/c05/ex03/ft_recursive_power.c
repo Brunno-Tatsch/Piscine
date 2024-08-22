@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_recursive_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bxavier- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 20:45:00 by bxavier-          #+#    #+#             */
-/*   Updated: 2024/08/15 13:09:44 by bxavier-         ###   ########.fr       */
+/*   Created: 2024/08/18 19:16:53 by bxavier-          #+#    #+#             */
+/*   Updated: 2024/08/18 19:34:18 by bxavier-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
+//#include <unistd.h>
 
-int	ft_str_is_printable(char *str)
+int	ft_recursive_power(int nb, int power)
 {
 	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
+	i = nb;
+	if (power < 0)
+		return (0);
+	if (power == 0)
+		return (1);
+	if (power > 1)
 	{
-		if (str[i] < 32 || str[i] > 126)
-		{
-			return (0);
-		}
-		i++;
+		nb = i * ft_recursive_power(nb, power - 1);
 	}
-	return (1);
+	return (nb);
 }
 /*
 int	main(void)
 {
-	printf("O valor da Str é:%d", ft_str_is_printable("oi"));
+	printf("%d", ft_recursive_power(2, 9));
+	return (0);
 }*/

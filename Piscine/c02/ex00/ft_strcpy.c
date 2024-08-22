@@ -6,7 +6,7 @@
 /*   By: bxavier- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 17:56:53 by bxavier-          #+#    #+#             */
-/*   Updated: 2024/08/15 19:28:13 by bxavier-         ###   ########.fr       */
+/*   Updated: 2024/08/19 19:21:31 by bxavier-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ char	*ft_strcpy(char *dest, char *src)
 	int	i;
 
 	i = 0;
-	if (!dest || !src)
-		return (NULL);
 	while (src[i] != '\0')
 	{
 		dest[i] = src[i];
@@ -30,8 +28,6 @@ char	*ft_strcpy(char *dest, char *src)
 /*
 int	main(void)
 {
-	//char *dest = NULL;
-	//char *src = NULL;
 	char	dest[30];
 	char	src[] = "Tomara que passe!";
 

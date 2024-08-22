@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bxavier- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 20:45:00 by bxavier-          #+#    #+#             */
-/*   Updated: 2024/08/15 13:09:44 by bxavier-         ###   ########.fr       */
+/*   Created: 2024/08/18 17:38:38 by bxavier-          #+#    #+#             */
+/*   Updated: 2024/08/18 18:21:19 by bxavier-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//#include <unistd.h>
 //#include <stdio.h>
 
-int	ft_str_is_printable(char *str)
+int	ft_iterative_factorial(int nb)
 {
-	int	i;
+	int	factorial;
 
-	i = 0;
-	while (str[i] != '\0')
+	factorial = 1;
+	if (nb < 0)
+		return (0);
+	while (nb > 0)
 	{
-		if (str[i] < 32 || str[i] > 126)
-		{
-			return (0);
-		}
-		i++;
+		factorial = factorial * nb;
+		nb--;
 	}
-	return (1);
+	return (factorial);
 }
 /*
 int	main(void)
 {
-	printf("O valor da Str é:%d", ft_str_is_printable("oi"));
+	printf("%d", ft_iterative_factorial(9));
+	return (0);
 }*/

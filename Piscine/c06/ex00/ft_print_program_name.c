@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bxavier- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 20:45:00 by bxavier-          #+#    #+#             */
-/*   Updated: 2024/08/15 13:09:44 by bxavier-         ###   ########.fr       */
+/*   Created: 2024/08/22 10:43:19 by bxavier-          #+#    #+#             */
+/*   Updated: 2024/08/22 18:07:42 by bxavier-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <unistd.h>
 
-int	ft_str_is_printable(char *str)
+int	main(int argc, char **argv)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	if (argc > 0)
 	{
-		if (str[i] < 32 || str[i] > 126)
+		while (argv[0][i] != '\0')
 		{
-			return (0);
+			write(1, &argv[0][i], 1);
+			i++;
 		}
-		i++;
 	}
-	return (1);
+	write(1, "\n", 1);
+	return (0);
 }
-/*
-int	main(void)
-{
-	printf("O valor da Str é:%d", ft_str_is_printable("oi"));
-}*/

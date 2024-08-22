@@ -1,34 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bxavier- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 20:45:00 by bxavier-          #+#    #+#             */
-/*   Updated: 2024/08/15 13:09:44 by bxavier-         ###   ########.fr       */
+/*   Created: 2024/08/21 23:36:28 by bxavier-          #+#    #+#             */
+/*   Updated: 2024/08/21 23:54:02 by bxavier-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <unistd.h>
+#include <stdio.h>
 
-int	ft_str_is_printable(char *str)
+int	ft_is_prime(int nb)
 {
 	int	i;
 
-	i = 0;
-	while (str[i] != '\0')
+	i = 2;
+	if (nb == 0 || nb == 1)
+		return (0);
+	if (nb == 2)
+		return (1);
+	while (i < nb)
 	{
-		if (str[i] < 32 || str[i] > 126)
-		{
+		if (nb % i == 0)
 			return (0);
-		}
 		i++;
 	}
 	return (1);
 }
+
+int	ft_find_next_prime(int nb)
+{
+	int	i;
+
+	i = 2;
+	while (1)
+	{
+		if (ft_is_prime(nb))
+			return (nb);
+		++nb;
+	}
+}
 /*
 int	main(void)
 {
-	printf("O valor da Str é:%d", ft_str_is_printable("oi"));
+	printf("%d", ft_find_next_prime(14));
 }*/

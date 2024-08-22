@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bxavier- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/14 20:45:00 by bxavier-          #+#    #+#             */
-/*   Updated: 2024/08/15 13:09:44 by bxavier-         ###   ########.fr       */
+/*   Created: 2024/08/17 12:04:21 by bxavier-          #+#    #+#             */
+/*   Updated: 2024/08/21 20:28:26 by bxavier-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <unistd.h>
+#include <stdio.h>
 
-int	ft_str_is_printable(char *str)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (s1[i] != '\0' && s2[i] != '\0' && i < n)
 	{
-		if (str[i] < 32 || str[i] > 126)
+		if (s1[i] != s2[i])
 		{
-			return (0);
+			return (s1[i] - s2[i]);
 		}
 		i++;
 	}
-	return (1);
+	if (i < n)
+	{
+		return (s1[i] - s2[i]);
+	}
+	return (0);
 }
 /*
 int	main(void)
 {
-	printf("O valor da Str é:%d", ft_str_is_printable("oi"));
+	char	*s1 = "";
+	char	*s2 = "2135nbnmbmnbmnb";
+
+	printf("%d", ft_strncmp(s1, s2, 0));
 }*/
